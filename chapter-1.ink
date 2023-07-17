@@ -29,8 +29,8 @@ One week earlier.
     
     -- The kid on the counter passes you back your cloth, neatly wrapping your breakfast.
     
-    **{Skilled(Upper)}Suutebread - it's tourist food, but hell, you're a tourist.[#UPPER]
-    **{Skilled(Lower)}Your usual - you've been coming here for years.[#LOWER]
+    **{Skilled(Upper)}Suutebread - it's tourist food, but hell, you're a tourist.
+    **{Skilled(Lower)}Your usual - you've been coming here for years.
     **A tart, heaving with berries - it's been a long turn, and you deserve a treat.
         ~Treat = true
     **Cust, a meat bun dripping with grease - hell of a hangover cure.
@@ -59,7 +59,7 @@ One week earlier.
 
     You take a table on the balcony, looking out over the city. Catching the eye of a server, you gesture for...
     
-    **{Skilled(Lower)}Your usual - you've been coming here for years.[#LOWER]
+    **{Skilled(Lower)}Your usual - you've been coming here for years.
     **{NotSkilled(Lower)}Whatever's good. This is your first time down here in a while.
     **Something special - it's been a long turn, and you deserve a treat.
         ~Treat = true
@@ -72,9 +72,9 @@ One week earlier.
     -> Contemplate_City -> waitingForDrinks
     ** [The other patrons...]
     A mix of folk. Not many imperials down here, this far from the lodestone. But the last elevator doesn't leave for a few hours, and a few look like tourists.
-    *** {Skilled(Thief)} Would be easy pickings, if you weren't keeping your head down. [#THIEF]
-    *** {Skilled(Muscle)} Even if you weren't keeping your head down, you doubt anything would try and start something. [#MUSCLE]
-    *** {Skilled(Lower)} This isn't the real city. You're itching to find somewhere grimier.[#LOWER]
+    *** {Skilled(Thief)} Would be easy pickings, if you weren't keeping your head down. 
+    *** {Skilled(Muscle)} Even if you weren't keeping your head down, you doubt anything would try and start something. 
+    *** {Skilled(Lower)} This isn't the real city. You're itching to find somewhere grimier.
     *** A boring backdrop for what will hopefully be a boring meeting.
     --- -> waitingForDrinks
     ** -> wrapup
@@ -134,9 +134,9 @@ He flexes his arm and you hear a whirr. "Oh, this? Not my problem. I've got a gu
 
 You examine the card. It's embossed with an unusual mark, seven crossed lines, slightly out of alignment. {NotSkilled(Lower) && NotSkilled(Mage) && NotSkilled(Tinker): You flip the card over. -> flip | "It's subtle, but..."}
 
-* {Skilled(Mage)}"...it's warded[." #MAGE], not in a way you'd easiliy notice. But it's close enough to what we felt in the vault that I wouldn't call it a coincidence." 
-* {Skilled(Lower)}"...it's never seen sunlight[." #LOWER]... you'd expect some kind of yellowing, but this is almost transparent. One of the old houses, burrowed in deep." 
-* {Skilled(Tinker)}"...it's not a standard glyph. Dwarven technique.[" #TINKER] Someone that doesn't want to deal with the guilds."
+* {Skilled(Mage)}"...it's warded[."], not in a way you'd easiliy notice. But it's close enough to what we felt in the vault that I wouldn't call it a coincidence." 
+* {Skilled(Lower)}"...it's never seen sunlight[."]... you'd expect some kind of yellowing, but this is almost transparent. One of the old houses, burrowed in deep." 
+* {Skilled(Tinker)}"...it's not a standard glyph. Dwarven technique.["] Someone that doesn't want to deal with the guilds."
     ~NoticedFont = true
 
 - There's a long beat as Yv watches you. 
@@ -148,7 +148,7 @@ You examine the card. It's embossed with an unusual mark, seven crossed lines, s
 
 - (flip){{NotSkilled(Lower): {NoticedFont:The same|An} unusual typeface, in monospace smithscript. You were never great at traderunes - less common on the surface. | {NoticedFont:More t|T}raderunes, tightly monospaced.} | You look back down at the card.}
 
-* {Skilled(Lower)} You read it effortlessly. [#LOWER]
+* {Skilled(Lower)} You read it effortlessly. 
     "What's owed now, and ten times again to each participant?"
 * {NotSkilled(Lower)}Your read it with some effort.
     "What's owed... today, and more, and more again?"
