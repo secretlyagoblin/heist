@@ -13,6 +13,8 @@ VAR PlayerMechanical = 0
 VAR PlayerUpper = 0
 VAR PlayerDeep = 0
 
+VAR PlayerHeistRole = Unset
+
 -> The_Heist.Prologue
 
 === The_Heist
@@ -31,30 +33,32 @@ You'd think you could see to the end of the world, considering how high in the a
  A long way to fall.
 
 - You ask yourself again why they came to you for this job.
-* {NotSkilled(Pilot)}Because I can fly rings around these ships.
+* {NotSkilled(Pilot)}Because you can fly rings around these ships.
     ~AddSkill(Pilot)
     You put both hands back on the wheel and make a careful adjustment, smoothly taking the ship up through a gap between two ivory pleasurecraft.
-* {NotSkilled(Muscle)}They needed muscle. I'm muscle.
+* {NotSkilled(Muscle)}They needed muscle. You're muscle.
     ~AddSkill(Muscle)
     You check over your weapons one last time, and adjust your breastplate. Heavy gear for airbourne work, but if the pilot does their job, you've got nothing to worry about.
-* {NotSkilled(Tinker)}They knew I was the best with machines.
+* {NotSkilled(Tinker)}They knew you're the best with machines.
     ~AddSkill(Tinker)
     You make one last adjustment to the rotastat and pull yourself back to the front of the ship, just in time to see the pilot smoothly navigating between two ivory pleasurecraft.
-* {NotSkilled(Thief)}They heard about my second story work.
+* {NotSkilled(Thief)}They heard about your second story work.
     ~AddSkill(Thief)
     You make one last adjustment to the rigging and lower yourself down to the deck of the ship, just in time to see the pilot smoothly navigating between two ivory pleasurecraft. 
 * {NotSkilled(Mage)}Because a ship like this doesn't stay in the air without magic, no matter what most folk would like to think.
     ~AddSkill(Mage)
     You cast you hand once more over the engine, muttering instinctually under your breath as you feel the shape of the enchantments. Returning to the front of the ship, you're just in time to watch the pilot smoothly navigating between two ivory pleasurecraft. 
 
-- You know what they say about you.
+- 
+~PlayerHeistRole = LIST_MIN(PlayerSkills)
+You know what they say about you.
 * She's[...]
     ~PlayerGender = UnfallibleComprehensiveListOfAllGendersAndIdentities.She
 * He's[...]
     ~PlayerGender = UnfallibleComprehensiveListOfAllGendersAndIdentities.He
 * They're[...]
     ~PlayerGender = UnfallibleComprehensiveListOfAllGendersAndIdentities.They
-- <> the best we've got.
+- <> the best you can get on a budget.
 
 * {NotSkilled(Lower)}A dock rat in need of a lucky break.
     ~AddSkill(Lower)
