@@ -1,6 +1,6 @@
 INCLUDE chapter-1.ink
 LIST Crew = Unset, Pilot,Muscle,Tinker,Mage,Thief
-LIST Backgrounds = Upper,Lower,Surface
+LIST Backgrounds = Upper,Lower
 LIST UnfallibleComprehensiveListOfAllGendersAndIdentities = He,She,They
 VAR PlayerGender = They
 
@@ -43,6 +43,9 @@ You'd think you could see to the end of the world, considering how high in the a
 * {NotSkilled(Thief)}They heard about my second story work.
     ~AddSkill(Thief)
     You make one last adjustment to the rigging and lower yourself down to the deck of the ship, just in time to see the pilot smoothly navigating between two ivory pleasurecraft. 
+* {NotSkilled(Mage)}Because a ship like this doesn't stay in the air without magic, no matter what most folk would like to think.
+    ~AddSkill(Mage)
+    You cast you hand once more over the engine, muttering instinctually under your breath as you feel the shape of the enchantments. Returning to the front of the ship, you're just in time to watch the pilot smoothly navigating between two ivory pleasurecraft. 
 
 - You know what they say about you.
 * She's[...]
@@ -53,20 +56,18 @@ You'd think you could see to the end of the world, considering how high in the a
     ~PlayerGender = UnfallibleComprehensiveListOfAllGendersAndIdentities.They
 - <> the best we've got.
 
-* {NotSkilled(Lower)}A dock rat in need of a luckly break.
+* {NotSkilled(Lower)}A dock rat in need of a lucky break.
     ~AddSkill(Lower)
 * {NotSkilled(Upper)}An upper rim dropout with everything to prove.
     ~AddSkill(Upper)
-* {NotSkilled(Surface)}A spire crawler trying to rise out of the dust.
-    ~AddSkill(Surface)
 
 - The ship lurches, taking a wide arc around a floating palace, temporarily cutting off line of sight to the busiest sectors of sky.
 
 "Alright folks," you hear yourself say.
 
-* Let's make some money.
-* Let's make some noise.
-* Let's get to work.
+* "Let's make some money."
+* "Let's make some noise."
+* "Let's get to work."
 
 - -> Chapter_1
 
@@ -139,4 +140,14 @@ VAR CurrentTime = 0
     hers
 -They:
     theirs
+}
+
+=== function man()
+{PlayerGender:
+-He:
+    man
+-She:
+    woman
+-They:
+    person
 }

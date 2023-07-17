@@ -1,7 +1,6 @@
 === Chapter_1 ===
 
 VAR Chapter_1_Hungover = false
-VAR Chapter_1_Treat = false
 LIST Chapter_1_Locations = Bar,Bakery,Street
 VAR Chapter_1_Location = Bar
 LIST Chapter_1_Times = Morning,Noon,Evening,Midnight
@@ -14,7 +13,9 @@ One week earler.
 
 = Meeting_Yv
 
-* XXX Bakery, just after dawn.
+~temp Treat = false
+
+* The Tura Turil Bakery, just before dawn.
     ~Chapter_1_Time = Morning
 
 
@@ -32,7 +33,7 @@ One week earler.
     ** YYYY - hell of a hangover cure
         ~Chapter_1_Hungover = true
     ** ZZZZ - a local favourite
-        ~Chapter_1_Treat = true
+        ~Treat = true
     
     -- <>, and you make your way back into the waking city, trying to find a quiet place {Chapter_1_Hungover: to rest your pounding head| to watcht the sunrise}.
     
@@ -46,11 +47,31 @@ One week earler.
     
 
     
-* XXX Bar, just after sunset.
+* The Blasted Shaft Bar, just before dusk.
+
     ~Chapter_1_Location = Bar
     ~Chapter_1_Time = Evening
 
-- It's not long after you settle down to {Chapter_1_Location == Street: eat| drink}, however, before your solitude is interupted.
+    You take a table on the balcony, looking out over the city. Catching the eye of a server, you gesture for...
+    
+    **{Skilled(Lower)}Your usual - you've been coming here for years.
+    **{NotSkilled(Lower)}Whatever's good. This is your first time down here in a while.
+    **Something special - it's been a long turn, and you deserve a treat.
+        ~Treat = true
+    **The same as yesterday - you're nursing a sizable hangover.
+        ~Chapter_1_Hungover = true
+    
+    --As the server fetches your drink, you let the moment wash over you.
+    --(waitingForDrinks)
+    ** The city[...], over the balcony, still humming with activity. -> Contemplate_City -> waitingForDrinks
+    ** Blasting my gourd
+    
+
+
+- You take a {Chapter_1_Location == Street: bite| sip}, and cast your mind bac to your first job.
+-> First_Job ->
+    
+You sense familiar movement in the corner of your eye, bringing you back to the here-and-now.
 * "You're early."
 * "You're late."
 
@@ -98,7 +119,7 @@ He flexes his arm and you hear a whirr. "Oh, this? Not my problem. I've got a gu
 You examine the card. It's embossed with an unusual mark, seven crossed lines, slightly out of alignment. {NotSkilled(Lower) && NotSkilled(Mage) && NotSkilled(Tinker): You flip the card over. -> flip | "It's subtle, but..."}
 
 * {Skilled(Mage)}"...it's warded[." #MAGE], not in a way you'd easiliy notice. But it's close enough to what we felt in the vault that I wouldn't call it a coincidence." 
-* {Skilled(Lower) || Skilled(Surface)}"...it's never seen sunlight[." #LOWER #SURFACE]... you'd expect some kind of yellowing, but this is almost transparent. One of the old houses, burrowed in deep." 
+* {Skilled(Lower)}"...it's never seen sunlight[." #LOWER #SURFACE]... you'd expect some kind of yellowing, but this is almost transparent. One of the old houses, burrowed in deep." 
 * {Skilled(Tinker)}"...it's not a standard glyph. Dwarven technique.[" #TINKER] Someone that doesn't want to deal with the guilds."
     ~temp NoticedFont = true
 
@@ -109,7 +130,7 @@ You examine the card. It's embossed with an unusual mark, seven crossed lines, s
 * "Ah."  -> shame 
 * You {wordlessly|} flip the card over.
 
-- (flip){{NotSkilled(Lower): {NoticedFont:The same|An} unusual typeface, in monospace smithscript. {Skilled(Surface): You were never great at traderunes - less common on the surface.} | }| You look back down at the card.}
+- (flip){{NotSkilled(Lower): {NoticedFont:The same|An} unusual typeface, in monospace smithscript. You were never great at traderunes - less common on the surface. | {NoticedFont:More t|T}raderunes, tightly monospaced.} | You look back down at the card.}
 
 * {Skilled(Lower)} You read it effortlessly. [#LOWER]
     "What's owed now, and ten times again to each participant?"
@@ -126,8 +147,8 @@ You examine the card. It's embossed with an unusual mark, seven crossed lines, s
 * "That's enough for us to get our papers - get out of the mountain for good."
 
 - Yv stands, and looks out over the city. "He wants a pilot at the meeting. "
-//{PlayerRole == Crew.Pilot: 
- //   <> That's you, which also means that we'll need a replacement
+//{Skilled(Pilot): 
+//  <> That's you, which also means that we'll need a replacement
     //{PlayerMagic > PlayerMechanical:
  //       <> mage.
  //           ~KnownNeededRoles += Crew.Mage
@@ -170,4 +191,33 @@ You finish your {Chapter_1_Time == Morning: breakfast, jump down from your perch
 
 = Contemplate_City
 
+-(theCity)
+*You look up.
+*You look down.
+*You turn away. ->->
+
+- -> theCity
+
+= First_Job
+
+- You were young, but they picked you for a reason.
+* {NotSkilled(Pilot)}I'd made my name almost crashing a stolen sloop. Almost.
+    ~AddSkill(Pilot)
+* {NotSkilled(Muscle)}I was big for my age - people didn't fuck with me.
+    ~AddSkill(Muscle)
+* {NotSkilled(Tinker)}I loved to tinker - and I didn't care where the machines came from.
+    ~AddSkill(Tinker)
+* {NotSkilled(Thief)}I broke into the Aaqaarian embassy. Only {man()} without wings to do it.
+    ~AddSkill(Thief)
+* {NotSkilled(Mage)}I could pick a cursed trinket out of a haul in a second.
+    ~AddSkill(Mage)
+    
+-
+*Better times[...]
+*Worse times[...]
+*Different times[...]
+
+
+
+-<>, though less at stake, you must admit. 
 ->->
