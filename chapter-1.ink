@@ -79,7 +79,7 @@ One week earlier.
     --- -> waitingForDrinks
     ** -> wrapup
     
--(wrapup) The server places your drink in front of you {Treat: - it's taller than you expected, and blood red - } and takes the coins you slide across the table.
+--(wrapup) The server places your drink in front of you {Treat: - it's taller than you expected, and blood red - } and takes the coins you slide across the table.
     * Just the asking price.
     * A good tip - you're feeling generous.
 
