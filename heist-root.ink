@@ -100,13 +100,13 @@ You know what they say about you.
 
 {AdvanceAndShowCountdown(12)}
 
+TO BE CONTINUED
+
+-> END
+
 Interstital_1_Placeholder
 
 Something cool and fun will happen here, foreshadowing the next chapter.
-
-//144th year, Fifth turn, fourth day. 26 minutes since the Arterial Aerial  entered Karaad airspace. 
-
-//Some kind of action... 
 
 + ...
 -
