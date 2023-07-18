@@ -10,16 +10,30 @@ VAR PlayerSkills = ()
 VAR KnownNeededRoles = ()
 VAR KnownFilledRoles = ()
 
-VAR PlayerMagic = 0
-VAR PlayerMechanical = 0
-VAR PlayerUpper = 0
-VAR PlayerDeep = 0
-
 VAR PlayerHeistRole = Unset
 
--> The_Heist.Prologue
+-> The_Heist
 
 === The_Heist
+
+VAR enableDebug = false
+
+{enableDebug == false: -> Prologue}
+
+-(menu)
++ New Game -> Prologue
++ Debug Mode
+Pick Build:
+++[Pilot, Mage, Lower, Migrant]
+    ~ PlayerHeistRole = Pilot
+    ~PlayerSkills+= (Pilot,Mage,Lower,Migrant)
+    Player skills set to "{PlayerSkills}"
+++Back -> menu
+--Pick Location:
+**Kuren-Ken
+...
+->Chapter_1_Kuren_Ken.Debug
+
 
 = Prologue
 

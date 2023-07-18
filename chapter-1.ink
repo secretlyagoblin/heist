@@ -197,7 +197,7 @@ You examine the card. It's embossed with an unusual mark, seven crossed lines, s
     ~discussedShip = true
      *{PlayerHeistRole != Pilot && Skilled(Pilot)}"I'd offer, but I'm a little rusty[."]. Don't want a whole job resting on my shoulders."
 
--Ys nods. "If he wants to meet our pilot, we'll also need to front up with a tinker, to show we can keep an engine running.
+-Yv nods. "If he wants to meet our pilot, we'll also need to front up with a tinker, to show we can keep an engine running.
 
 ~ temp knowJustStandingIn = 0
 
