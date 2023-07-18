@@ -1,4 +1,4 @@
-=== Chapter_1 ===
+=== Chapter_1_Intro ===
 
 VAR Chapter_1_Hungover = false
 LIST Chapter_1_Locations = Bar,Bakery,Street
@@ -106,7 +106,7 @@ He flexes his arm and you hear a whirr. "Oh, this? Not my problem. I've got a gu
 ~KnowTinker = true
 * "What's news[?"], Yv?"
  
- - Yv looks out over the city, watching as {Chapter_1_Location == Street: the last of the mirrors catch the light, basking the depths in daylight| the last of the evening light leaves the mirrors, and night decends on the mountain}. "He asked to meet in person."
+ - Yv looks out over the city, watching as {Chapter_1_Location == Street: the last of the mirrors catch the light, basking the depths in daylight| the last of the evening light leaves the mirrors, and night decends on the mountain}. {Chapter_1_Location == Bar: He waves away the approaching server and waits for a second as they quiety retreat.}  "He asked to meet in person."
  
  * "What?"
  Yv broadly shrugs, a stiff movement, keeping arms as still as he can. "
@@ -134,12 +134,17 @@ He flexes his arm and you hear a whirr. "Oh, this? Not my problem. I've got a gu
 
 You examine the card. It's embossed with an unusual mark, seven crossed lines, slightly out of alignment. {NotSkilled(Lower) && NotSkilled(Mage) && NotSkilled(Tinker): You flip the card over. -> flip | "It's subtle, but..."}
 
-* {Skilled(Mage)}"...it's warded[."], not in a way you'd easiliy notice. But it's close enough to what we felt in the vault that I wouldn't call it a coincidence." 
+-(cardRoot)
+
+* {Skilled(Mage)}"...it's warded[."], not in a way you'd easiliy notice. But it's close enough to what we felt in the vault that I wouldn't call it a coincidence. I'm not sure anyone other than us could read this." 
 * {Skilled(Lower)}"...it's never seen sunlight[."]... you'd expect some kind of yellowing, but this is almost transparent. One of the old houses, burrowed in deep." 
 * {Skilled(Tinker)}"...it's not a standard glyph. Dwarven technique.["] Someone that doesn't want to deal with the guilds."
     ~NoticedFont = true
+* ->postCard
 
-- There's a long beat as Yv watches you. 
+- ->cardRoot
+
+- (postCard) There's a long beat as Yv watches you. 
 "..And the address?"
 
 - (shame)
@@ -166,32 +171,38 @@ You examine the card. It's embossed with an unusual mark, seven crossed lines, s
 {PlayerHeistRole == Pilot: 
   <> That's you 
   {Skilled(Tinker):
-    <>.
+    <>."
+    
   -else:
     <>, which also means for the first time in a long time, we're 
     {Skilled(Mage): <> down a mage}
     {Skilled(Muscle): <> short of muscle}
     {Skilled(Thief): <> down a second-story-{man()}}
+    <>."
    }
 -else:
 ~KnownNeededRoles += Pilot
 }<>"
 
 -
+~temp discussedPilot = false
+~temp discussedShip = false
 
-"If he wants to meet our pilot, we'll also need to front up with a tinker and a mage, to show we can keep an engine running.
+    * {PlayerHeistRole == Pilot}"It'd be good to get into the air again[."]. The tunnels aren't good for me."
+    * {PlayerHeistRole == Pilot && (Skilled(Tinker))}"That was easy[."] We'd still need a ship though."
+    * {PlayerHeistRole == Pilot && NotSkilled(Tinker)}"We wouldn't need a them for the meet[."]. Just me and a ship would be enough."   
+    * {PlayerHeistRole != Pilot}"I might know a guy[."]. {Skilled(Upper): Was going to catch a ride with him back home | Good pilot, grew up near me.}"
+    ~discussedPilot = true
+    * "I could head down to the docks to look for a ship {Chapter_1_Time == Morning: today | tonight}?"
+    ~discussedShip = true
+     *{PlayerHeistRole != Pilot && Skilled(Pilot)}"I'd offer, but I'm a little rusty[."]. Don't want a whole job resting on my shoulders."
+
+-Ys nods. "If he wants to meet our pilot, we'll also need to front up with a tinker, to show we can keep an engine running.
 
 ~ temp knowJustStandingIn = 0
 
-{PlayerHeistRole == Mage:
-<> You're a damn fine mage, so we've got that covered.
--else:
-<> A mage on short notice is going to be tricky.
-~KnownNeededRoles += Mage
-}
-
 {PlayerHeistRole == Tinker:
-<> But you've got us covered on the mechanical side.
+<> But you've got us covered there.
 -else:
 <> I can stand-in as a tinker for the meet in a pinch.
 ~knowJustStandingIn = 1
@@ -200,31 +211,67 @@ You examine the card. It's embossed with an unusual mark, seven crossed lines, s
 
 -(chatRoot)
 
-* {KnownNeededRoles ? (Crew.Pilot) } "...a pilot?"
+* "Hold on, I'm still not convinced we're doing this."
+    "We don't need to take the job. We do need to take the meeting. And we've got to look professional."
+    ** "Since when do we worry about looking professional?"
+    ** "Fine, but I'm still not convinced."
+    ** "Okay then. We'll hear him out."
+    -- Yv grunts noncommitally. -> chatRoot
+* "I take it {|from this that} you trust {this guy|the client}?"
+    "You saw that card. Lot of money to spend on a trap for the two of us."
+        ** "And we still have his merchanise."
+            "That we do."
+        ** "You said his middler was a {Skilled(Mage): summon | imp} of some kind? {Skilled(Mage): Not | Can't be} cheap."
+        "With the money he's throwing around, I very much think this guy is one to be taken seriously."
+        ** "I trust you to follow that up."
+        Yv gives a slight smile. "I intend to spend the rest of the {Chapter_1_Time == Morning: day | night} scoping out the meet, while you're out running our errands."
+        ->chatRoot
+        -- <> Yv gives a slight smile. "I also intend to spend the rest of the {Chapter_1_Time == Morning: day | night} scoping out the meet, while you're out running our errands."
+        ->chatRoot
+        
+        
 * {knowJustStandingIn == 2 } "{KnowTinker: What about your guy? Up in the scratch|Do we know a tinker}?"
-    Yv gives a noncommital gesture. "{KnowTinker == false:I've got a guy who does my arms, skyward, in the scratch. |}I trust him, but I'm not sure he's looking for action. His brother though... just as good, faster, louder. Not a problem for today" 
+    Yv gives a noncommital gesture. "{KnowTinker == false:I've got a guy who does my arms, skyward, in the scratch. |}I trust him, but I'm not sure he's looking for action. His brother though... just as good, faster, louder. Not a problem for today." 
     ~KnowTinker = true
     -> chatRoot
 * {knowJustStandingIn == 1} "...just standing in?"
     Yv snorts with irritation. "If we're taking this seriously, I'll have my hands full just getting everything in place. Don't have the time to get my arm back to job condition. Time's against us."
     ~knowJustStandingIn = 2
     -> chatRoot
-    
-* {KnownNeededRoles ? (Crew.Mage) } "Where do we find a mage?"
-* {KnownNeededRoles ? (Crew.Pilot) } "Know any pilots who aren't already spoken for?"
-* "So you trust {this guy|the client}?"
-* "Alright. So what's next?"
+
+* "Alright. Say we do this... what's next?"
+
 
 - Yv reaches out for the card in your hand.
 * [Slide it back over.] You slide it back over, and it dissapears into his sleeve. He sits back down.
 * [Keep it.] You pocket the card. Yv's expression is hard to read, but he gives you a neutral shrug and sits back down.
-- "We're meeting another handler in the warren at {Chapter_1_Time == Morning: sunset| dawn}. That gives us {Chapter_1_Time == Morning: today| tonight} today to put on a good show. We need the merchanise, we need a {KnownNeededRoles}, and we need to make sure our backs are covered. I'll handle the last point, if you can take the first two."
+- "We're to meet another handler in the warren at {Chapter_1_Time == Morning: sunset| dawn}. That gives us {Chapter_1_Time == Morning: today| tonight} today to put on a good show. We need the merchanise, 
+{PlayerHeistRole != Pilot: we need a pilot,} we need a ship, and we need to make sure our backs are covered. I'll handle the last point, if you can take the rest."
 
 * "We're really doing this, huh?"
 * "You can count on me."
 * "As long as we're getting paid this time."
 
-- Yv stands and makes to leave. "I'll leave a ribboned candle at the shrine to Oria if we're on. Do you know it?"
+- Yv stands and makes to leave. "Anything else before I head out?"
+-(leaving)
+
+* "The merchanise is still with Tolsen?"
+    He shrugs. "I haven't seen her since you've seen her."
+    **"She's holed up here in the fort[."]. I'll make sure to give her some warning that we're moving tonight."
+    **"We might need an extra pair of hands moving the box[."], but I can worry about that."
+    **{Skilled(Mage)}"I'll be able to propogate the wards myself[."]. I'm sure she'll be happy to be rid of it."
+    
+* "Any sense heading anywhere but the docks?"
+    As if on cue, a dirgable hums low overhead. You both wait a second as it passes. "For ships? Not really. Asking around at the elevators might be a good idea though. Those folk talk. Long trip down though, so you'll only want to do it once."
+* "Where in the warren?"
+    He gestured broadly in the direction of the main gatehouse, across the fort from here. "Just start walking. If I'm there, I'll find you. Trust me."
+* "I'm good for now."
+->trueLeaving
+
+- {Yv nods. "Anything else?" | |"That it?" || "We're good?"} ->leaving
+
+
+-(trueLeaving)"I'll leave a ribboned candle at the shrine to Oria if we're on. Do you know it?"
 
 * {Skilled(Migrant)} "My family is from the Vigil, {Skilled(Lower): I know| I can find} the place."
 * {Skilled(Lower)} "I remember the place."
@@ -232,13 +279,11 @@ You examine the card. It's embossed with an unusual mark, seven crossed lines, s
 
 - "If you show, I'll show. See you {Chapter_1_Time == Morning: tonight| in the morning}."
 
--> The_Heist.Interstital_1 -> Lower_Streets
+* "Be safe, Yv."
+* "See you soon."
+* "Enjoy perching."
 
-= Lower_Streets
-
-You finish your {Chapter_1_Time == Morning: breakfast, jump down from your perch, | drink, leave your table, } and make your way out into the streets of Kuren Ken.
-
-- -> END
+- -> The_Heist.Interstital_1 -> Chapter_1_Kuren_Ken
 
 = Contemplate_City
 ~temp lookedUp = false

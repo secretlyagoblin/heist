@@ -1,4 +1,6 @@
 INCLUDE chapter-1.ink
+INCLUDE kuren-ken.ink
+
 LIST Crew = Unset, Pilot,Muscle,Tinker,Mage,Thief
 LIST Backgrounds = Upper,Lower
 LIST UnfallibleComprehensiveListOfAllGendersAndIdentities = He,She,They
@@ -73,17 +75,27 @@ You know what they say about you.
 * "Let's make some noise."
 * "Let's get to work."
 
-- -> Chapter_1
+-
+*...
+
+- -> Chapter_1_Intro
 
 = Interstital_1
++ ...
+-
 
-AdvanceAndShowCountdown(12)
+{AdvanceAndShowCountdown(12)}
 
 Interstital_1_Placeholder
+
+Something cool and fun will happen here, foreshadowing the next chapter.
 
 //144th year, Fifth turn, fourth day. 26 minutes since the Arterial Aerial  entered Karaad airspace. 
 
 //Some kind of action... 
+
++ ...
+-
 
 ->-> 
 
