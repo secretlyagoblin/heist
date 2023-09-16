@@ -1,5 +1,7 @@
 INCLUDE chapter-1.ink
 INCLUDE kuren-ken.ink
+INCLUDE docks
+
 
 LIST Crew = Unset, Pilot,Muscle,Tinker,Mage,Thief
 LIST Backgrounds = Upper,Lower
@@ -16,7 +18,7 @@ VAR PlayerHeistRole = Unset
 
 === The_Heist
 
-VAR enableDebug = false
+VAR enableDebug = true
 
 {enableDebug == false: -> Prologue}
 
@@ -119,7 +121,7 @@ VAR CurrentTime = 0
 
 ~CurrentTime+= amount
 
-144th year, Fifth turn, fourth day. 
+144th year, Fifth turn, ninth day. 
 {CurrentTime} minutes since the Arterial Aerial entered Karaad airspace.
 
 === function Skilled(skill)

@@ -1,0 +1,21 @@
+
+=== Chapter_1_Docks
+
+The rumble of the trade elevators signal your arrival at the Old Iron Wall. {Chapter_1_Time == Morning: The morning rush has begun in earnest, and the | Even though it's late, the streets are} backed up with carts lined up haphazardly, merchants eager to get their goods down the elevators to the lower gate.
+
+-(dock_root)
+* The [wall...] Old Iron Wall stretches as far as you can see, as solid as it was a thousand years ago. From here you can look right over the city. 
+--(wall_root)
+** Your eyes trace the elevators up[.], 
+<>timber and stone, hundreds of years old and still holding strong, like ivy climbing the outer walls of Karaad.
+****{Skilled(Upper)} All the way home.
+****{NotSkilled(Upper)} Into the light[.], where djinn and demons flit through the air like birds. 
+---- -> wall_root
+** Your eyes track the elevators down[.], plunging straight down the old wall, an 
+** You turn your attention [away.] back to the task at hand.
+-> dock_root
+* The elevators...
+* The mood...
+
+- -> dock_root
+

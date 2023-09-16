@@ -7,8 +7,10 @@ You finish your {Chapter_1_Time == Morning: breakfast, jump down from your perch
 
 - (root) -> Ambience ->
 + Take stock... -> Things_To_Do -> root
-+ Travel...
-+ Look around...
++ [Head out...] It's time to head out.
+    -> Travel -> root
++ You look around... 
+    -> Look_Around -> root
 
 TO BE CONTINUED.
 
@@ -23,9 +25,24 @@ You reflect on what you need to do today.
 
 - ->->
 
+= Travel
+
+* Down to the docks, looking for a {NotSkilled(Pilot):pilot and a } ship in a hurry.
+    -> Chapter_1_Docks ->
+* Into town, to check in on the merchanise.
+* Do the rounds, listen to the city for a while.
+
+- ->->
+
 = Ambience
 
 {The city blarts|The city glarts}.
+
+->->
+
+= Look_Around
+
+{Chapter_1_Location == Chapter_1_Locations.Street: -> Chapter_1_Intro.Contemplate_City ->}
 
 ->->
 

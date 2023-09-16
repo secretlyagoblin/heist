@@ -9,6 +9,7 @@ VAR Chapter_1_Time = Morning
 Chaper 1: The Client
 
 One week earlier.
+
 ->Meeting_Yv
 
 = Meeting_Yv
@@ -80,8 +81,8 @@ One week earlier.
     ** -> wrapup
     
 --(wrapup) The server places your drink in front of you {Treat: - it's taller than you expected, and blood red - } and takes the coins you slide across the table.
-    * Just the asking price.
-    * A good tip - you're feeling generous.
+    ** Just the asking price.
+    ** A good tip - you're feeling generous.
 
 - You take a {Chapter_1_Location == Street: bite of your breakfast| sip}, and your mind wanders once again, casting back to your first job, all those years ago.
 -> First_Job ->
@@ -190,8 +191,8 @@ You examine the card. It's embossed with an unusual mark, seven crossed lines, s
 
     * {PlayerHeistRole == Pilot}"It'd be good to get into the air again[."]. The tunnels aren't good for me."
     * {PlayerHeistRole == Pilot && (Skilled(Tinker))}"That was easy[."] We'd still need a ship though."
-    * {PlayerHeistRole == Pilot && NotSkilled(Tinker)}"We wouldn't need a them for the meet[."]. Just me and a ship would be enough."   
-    * {PlayerHeistRole != Pilot}"I might know a guy[."]. {Skilled(Upper): Was going to catch a ride with him back home | Good pilot, grew up near me.}"
+    * {PlayerHeistRole == Pilot && NotSkilled(Tinker)}"We wouldn't need them for the meet[."]. Just me and a ship would be enough."   
+    * {PlayerHeistRole != Pilot}"I might know someone[."]. {Skilled(Upper): Was going to catch a ride with them back home | Good pilot, grew up near me.}"
     ~discussedPilot = true
     * "I could head down to the docks to look for a ship {Chapter_1_Time == Morning: today | tonight}?"
     ~discussedShip = true
@@ -245,8 +246,7 @@ You examine the card. It's embossed with an unusual mark, seven crossed lines, s
 - Yv reaches out for the card in your hand.
 * [Slide it back over.] You slide it back over, and it dissapears into his sleeve. He sits back down.
 * [Keep it.] You pocket the card. Yv's expression is hard to read, but he gives you a neutral shrug and sits back down.
-- "We're to meet another handler in the warren at {Chapter_1_Time == Morning: sunset| dawn}. That gives us {Chapter_1_Time == Morning: today| tonight} today to put on a good show. We need the merchanise, 
-{PlayerHeistRole != Pilot: we need a pilot,} we need a ship, and we need to make sure our backs are covered. I'll handle the last point, if you can take the rest."
+- "We're to meet another handler in the warren at {Chapter_1_Time == Morning: sunset| dawn}. That gives us {Chapter_1_Time == Morning: today| tonight} today to put on a good show. We need the merchanise, {PlayerHeistRole != Pilot: we need a pilot,} we need a ship, and we need to make sure our backs are covered. I'll handle the last point, if you can take the rest."
 
 * "We're really doing this, huh?"
 * "You can count on me."
@@ -331,7 +331,7 @@ Karaad - your home.
     -> Family_History ->
     }
 
-*You turn away. ->->
++You turn away. ->->
 
 - -> theCity
 
